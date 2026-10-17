@@ -37,10 +37,9 @@ function renderTable() {
   } else if (sortVal === 'name-desc') {
     displayList.sort((a, b) => b.name.localeCompare(a.name, 'uk'));
   } else if (sortVal === 'price-asc') {
-    //тут дефект для проведення тестування (рядкове порівняння)
-    displayList.sort((a, b) => a.price > b.price ? 1 : -1);
+    displayList.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
   } else if (sortVal === 'price-desc') {
-    displayList.sort((a, b) => a.price < b.price ? 1 : -1);
+    displayList.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
   }
 
   if (displayList.length === 0) {
